@@ -7,3 +7,9 @@
 # generated target folder #
 target
 target/*
+
+#others#
+.project
+.classpath
+settings/*
+settings
