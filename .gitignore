@@ -11,5 +11,5 @@ target/*
 #others#
 .project
 .classpath
-settings/*
-settings
+.settings/*
+.settings
