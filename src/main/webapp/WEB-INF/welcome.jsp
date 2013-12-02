@@ -3,14 +3,29 @@
 <HTML>
 <head>
 <style>
+
+
+body {
+	font-family: Helvetica, Verdana, sans-serif;
+}
+
+#welcome {
+	text-align: center;
+	color: #CC00FF;
+}
+
+#tec {
+	text-align: center;
+	color: #CC00FF;
+}
+
 #outer {
 	text-align: center;
 }
 
 #inner {
-
 	width: 200px;
-    height: 200px;
+	height: 200px;
 	text-align: center;
 	margin: 0 auto;
 }
@@ -20,7 +35,8 @@
 }
 
 table {
-	border: 1px solid black;
+	border: 2px solid black;
+	width: 300px;
 }
 
 #clearit {
@@ -29,14 +45,18 @@ table {
 </style>
 </head>
 <BODY>
+	<div id="welcome">
+		<h1>
+			<b>WELCOME!</b>
+		</h1>
+	</div>
 	<div id="outer">
-		<b>WELCOME!</b><br> This is a simple application that integrates
-		JBOSS, EJB,JPA and REST using:<br>
-
-
-		<b>MYSQL</b><br>
-		<b>JERSEY 1.8</b><br>
-
+		<br> This is a simple application that runs REST services on
+		JAVAEE container using:
+		<div id=tec>
+			<br> <br> <b>JERSEY 1.8</b><br> <b>EJB 3.1</b><br>
+			<b>MYSQL</b><br> <b>JBOSS 7</b> <br><br>
+		</div>
 
 		<div id="inner">
 
