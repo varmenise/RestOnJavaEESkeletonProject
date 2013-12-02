@@ -13,4 +13,6 @@ target/*
 .classpath
 .settings/*
 .settings
-CapitalServlet
+
+#not wanted in the final version#
+src/main/java/localdomain/localhost/CapitalServlet.java
