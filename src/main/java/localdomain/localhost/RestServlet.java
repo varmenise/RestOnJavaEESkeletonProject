@@ -30,43 +30,37 @@ import localdomain.localhost.domain.CapitalBean;
 @Path("/Services")
 @Stateless
 
+/**
+ * Rest services
+ */
 public class RestServlet {
-	
-	/*
+
+	/**
 	 * EJB annotation does not work with REST services, thus we defined a provider as workaround that
 	 * will inject the object annotated by @EJB (see class EJBProvider) with the specified name
 	 *  (in this case CapitalServiceBean).
 	 */
 	@EJB(mappedName = "java:module/CapitalServiceBean")
 	private CapitalServiceBean capitalService;
-	 
-	
+
+
 	@GET
 	@Produces("application/json")
 	@Path("/saveCapital/{capital}/{nation}")
 	public Response registration(@PathParam("capital") String capital, @PathParam("nation") String nation) {
-	
-		
+
 		CapitalBean capitalbean = new CapitalBean(capital, nation);
 		capitalService.create(capitalbean);
-
-		
-	        return Response.ok("Created and persisted " + capital).build();
-	       	        
-	        
+		return Response.ok("Created and persisted " + capital).build();
 	}
-	
+
 	@GET
 	@Produces("application/json")
 	@Path("/findByNation/{nation}")
 	public Response findByNation(@PathParam("nation") String nation) {
 
-		
 		CapitalBean g = capitalService.findByNation(nation);
-
 		return Response.ok(g, MediaType.APPLICATION_JSON).build();
-		
-		
 	}
 
 }

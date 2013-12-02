@@ -13,9 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
-
-
 package localdomain.localhost.domain;
 
 import java.io.Serializable;
@@ -25,9 +22,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 @Entity
 @XmlRootElement
-
 public class CapitalBean implements Serializable {
-	
+
 	private static final long serialVersionUID = 1L;
 	@Id @GeneratedValue private int id;
 	@Basic private String capital;

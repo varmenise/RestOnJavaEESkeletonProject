@@ -21,7 +21,7 @@ import java.util.Set;
 import javax.ejb.Stateless;
 import javax.ws.rs.core.Application;
 
-/*
+/**
  * JAX-RS provides a deployment agnostic abstract class
  * Application for declaring root resource and provider classes.
  * 
@@ -29,12 +29,11 @@ import javax.ws.rs.core.Application;
 @Stateless
 public class MyApplication extends Application {
 	
-        public Set<Class<?>> getClasses() {
-        	
+        public Set<Class<?>> getClasses() {        	
             Set<Class<?>> s = new HashSet<Class<?>>();
             s.add(EJBProvider.class);
             s.add(RestServlet.class);
-
             return s;
         }
+        
    }

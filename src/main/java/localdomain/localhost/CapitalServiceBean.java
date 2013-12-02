@@ -13,7 +13,6 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-
 package localdomain.localhost;
 
 import javax.ejb.*;
@@ -21,11 +20,20 @@ import javax.persistence.*;
 
 import localdomain.localhost.domain.CapitalBean;
 
+/**
+ * This is a simple Session Bean that accesses the Entity trough the EntityManager.
+ * The @PersistenceContext annotation tells the JBoss Server to inject an entity manager 
+ * during deployment.
+ * 
+ * @author valentinaarmenise
+ */
+
 @Stateless
 public class CapitalServiceBean {
 	@PersistenceContext(unitName = "testjpa")
 	private EntityManager em;
 
+	
 	public void create(CapitalBean... glist) {
 		for(CapitalBean g : glist) {
 			em.persist(g);
@@ -41,8 +49,7 @@ public class CapitalServiceBean {
 		if (q.getResultList()!=null&&q.getResultList().size()>0){
 			bean=(CapitalBean) q.getResultList().get(0);
 		}
-
 		return bean;
-
 	}
+	
 }

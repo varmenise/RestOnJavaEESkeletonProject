@@ -35,11 +35,10 @@ import localdomain.localhost.domain.CapitalBean;
 
 
 /**
- * Servlet implementation class CapitalServlet
+ * Rest responding to the url RestDispatcherServlet, that will call the right
+ * rest service according to the jsp input parameters.
  */
 @WebServlet("/RestDispatcherServlet")
-
-
 public class RestDispatcherServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	@EJB
@@ -52,12 +51,11 @@ public class RestDispatcherServlet extends HttpServlet {
 		String action=request.getParameter("action");
 		String nationToSave=request.getParameter("nation");
 		String capitalToSave=(request.getParameter("capital")!=null?request.getParameter("capital"):null);
-
 		if(action!=null&&action.equalsIgnoreCase("Save")){
+
 			if(nationToSave!=null&&capitalToSave!=null){
 
 				try {
-
 					String serverName=request.getServerName();
 					String contextPath=request.getContextPath();
 					int serverPort=request.getServerPort();
@@ -66,35 +64,27 @@ public class RestDispatcherServlet extends HttpServlet {
 					conn.setRequestMethod("GET");
 
 					if (conn.getResponseCode() != 200) {
-						System.out.println("http://"+serverName+":"+serverPort+contextPath+"/rest/Services/saveCapital/"+capitalToSave+"/"+nationToSave);
-
 						throw new RuntimeException("Failed : HTTP error code : "
 								+ conn.getResponseCode());
-
 					}
 
 					BufferedReader br = new BufferedReader(new InputStreamReader(
 							(conn.getInputStream())));
-
 					String output;
 					System.out.println("Output from Server .... \n");
+
 					while ((output = br.readLine()) != null) {
 						System.out.println(output);
 					}
 
 					conn.disconnect();
-
-				} catch (MalformedURLException e) {
-
+				}catch (MalformedURLException e) {
 					e.printStackTrace();
-
-				} catch (IOException e) {
-
+				}catch (IOException e) {
 					e.printStackTrace();
-
 				}
-
 			}
+
 		}
 
 		if(action!=null&&action.equalsIgnoreCase("retrieve")){
@@ -102,7 +92,6 @@ public class RestDispatcherServlet extends HttpServlet {
 				String nationToRetrieve=request.getParameter("nationToRetrieve");
 
 				try {
-
 					String serverName=request.getServerName();
 					String contextPath=request.getContextPath();
 					System.out.println(contextPath);
@@ -124,24 +113,20 @@ public class RestDispatcherServlet extends HttpServlet {
 					String output;
 					String outputString ="";
 					System.out.println("Output from Server .... \n");
+
 					while ((output = br.readLine()) != null) {
 						System.out.println(output);
 						outputString+=output;
 					}
-
 
 					request.setAttribute("capitalRetrieved", outputString );
 
 					conn.disconnect();
 
 				} catch (MalformedURLException e) {
-
 					e.printStackTrace();
-
 				} catch (IOException e) {
-
 					e.printStackTrace();
-
 				}
 
 
