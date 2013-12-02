@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 package localdomain.localhost;
+
 import com.sun.jersey.spi.inject.Injectable;
 import com.sun.jersey.spi.inject.InjectableProvider;
 import com.sun.jersey.core.spi.component.ComponentContext;

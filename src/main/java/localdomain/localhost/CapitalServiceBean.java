@@ -17,7 +17,6 @@ package localdomain.localhost;
 
 import javax.ejb.*;
 import javax.persistence.*;
-
 import localdomain.localhost.domain.CapitalBean;
 
 /**

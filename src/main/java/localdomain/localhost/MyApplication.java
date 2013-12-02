@@ -17,7 +17,6 @@ package localdomain.localhost;
 
 import java.util.HashSet;
 import java.util.Set;
-
 import javax.ejb.Stateless;
 import javax.ws.rs.core.Application;
 

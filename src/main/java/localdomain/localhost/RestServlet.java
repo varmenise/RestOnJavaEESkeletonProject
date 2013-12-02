@@ -24,7 +24,6 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
-
 import localdomain.localhost.domain.CapitalBean;
 
 @Path("/Services")
@@ -52,6 +51,7 @@ public class RestServlet {
 		CapitalBean capitalbean = new CapitalBean(capital, nation);
 		capitalService.create(capitalbean);
 		return Response.ok("Created and persisted " + capital).build();
+		
 	}
 
 	@GET
@@ -61,6 +61,7 @@ public class RestServlet {
 
 		CapitalBean g = capitalService.findByNation(nation);
 		return Response.ok(g, MediaType.APPLICATION_JSON).build();
+		
 	}
 
 }
