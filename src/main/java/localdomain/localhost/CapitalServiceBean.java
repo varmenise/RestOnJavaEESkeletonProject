@@ -47,6 +47,8 @@ public class CapitalServiceBean {
 				.setParameter("nation", nation);
 		if (q.getResultList()!=null&&q.getResultList().size()>0){
 			bean=(CapitalBean) q.getResultList().get(0);
+		}else{
+			bean=new CapitalBean("Not Found","Not Found");
 		}
 		return bean;
 	}
