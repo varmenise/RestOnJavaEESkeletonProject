@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
+<style>
+
+body {
+	font-family: Helvetica, Verdana, sans-serif;
+}
+
+#welcome {
+	text-align: center;
+	color: #CC00FF;
+}
+
+#inner {
+	width: 500px;
+	height: 500px;
+	text-align: center;
+	margin: 0 auto;
+}
+</style>
 <meta charset="US-ASCII">
 <title>JBOSS+mysql+rest+ejb+jpa CLICKSTART</title>
 </head>
 <body>
-	<h> Hi there! This is a simple module that integrates Jboss ejb jpa
-	with mysql connection and rest servlets! You can either access the
-	normal servlet /CapitalServlet or you can invoke the rest services for
-	-saveCapital capitals -findByNations capital </h>
+	<div id="welcome">
+		<h1>Hi there!</h1>
+	</div>
+
+	<div id="inner">
+		This is a simple module that integrates JavaEE container with EJB
+		and rest servlets! 
+		<br>
+		To access the services, access the following servlet at: /RestDispatcherServlet
+	</div>
 
 </body>
 </html>
